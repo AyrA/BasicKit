@@ -18,7 +18,7 @@ The player does not gets steam energy,
 because this would require at least 3 items (engine, boiler, pump),
 also it makes much more energy and works during the night.
 Getting steam energy running is not difficult.
-This can be tweaked, see `USE_STEAM` below
+This can be tweaked, see `USE_STEAM` below.
 
 ## Power pole
 The power pole is needed, because it's the only way for electricity to flow.
