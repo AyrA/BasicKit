@@ -6,8 +6,9 @@
 	Just add a "Code proudly stolen from AyrA" or something similar.
 ]]--
 
+-- NOTE: Disabled for 0.13 as it is no longer needed.
 -- We use some of these constants for the inventory and the event hookup
-require "defines"
+-- require "defines"
 
 -- Configure stuff below
 

@@ -1,6 +1,6 @@
 {
 	"name"        : "BasicKit",
-	"version"     : "0.0.2",
+	"version"     : "0.0.3",
 	"title"       : "AyrAs Basic Kit",
 	"author"      : "AyrA",
 	"contact"     : "/u/ayra_ch",
@@ -8,7 +8,7 @@
 	"description" : "Mod for the 'No crafting' challenge without the need for new items. It will disable all sort of hand crafting in the game and replaces your starter inventory with the 3 basic items needed to bootstrap everything.",
 	"dependencies":
 	[
-		"base >= 0.12.5",
+		"base >= 0.13.0",
 		"? boblibrary",
 		"? bobores",
 		"? bobmining",
@@ -23,5 +23,6 @@
 		"? bobtech",
 		"? bobenemies",
 		"? bobconfig"
-	]
+	],
+	"factorio_version": "0.13"
 }
