@@ -17,7 +17,7 @@
 local ADD_ORE=false
 
 -- Add an iron pickaxe
-local ADD_AXE=false
+local ADD_AXE=true
 
 -- Give you back the furnace and burner drill to start with
 local ADD_BASICS=false
