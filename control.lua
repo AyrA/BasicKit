@@ -70,58 +70,52 @@ yb24tb3JlAwMCBQAAAHN0b25lAwMCq4L0sHYyAAD4aQAAAAAAAAAAAA
 AFAEAlDj4=<<<
 ]]--
 
-script.on_init(function()
-	--[[
-		We bind the event, once the script is fully initialized.
-		Not needed, but a safety measure
-	]]--
-	script.on_event(defines.events.on_player_created,function(param)
-		--get the joined player. This makes the code, that follows shorter
-		local p=game.players[param.player_index]
+script.on_event(defines.events.on_player_created,function(param)
+	--get the joined player. This makes the code, that follows shorter
+	local p=game.players[param.player_index]
 
-		--clear all inventories automatically
-		for i,v in pairs(defines.inventory) do
-			--[[
-				pcall prevents lua from crashing.
-				If you are familiar with other languages,
-				pcall is essentially this:
+	--clear all inventories automatically
+	for i,v in pairs(defines.inventory) do
+		--[[
+			pcall prevents lua from crashing.
+			If you are familiar with other languages,
+			pcall is essentially this:
 
-				try
-				{
-					your_function();
-					return true;
-				}
-				catch
-				{
-					return false;
-				}
+			try
+			{
+				your_function();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 
-				In other words, it returns false, if the call crashed.
-				I use it, because there is no way of checking,
-				if a player has a certain inventory.
-				For example the trash slots are only available,
-				if they have been researched.
-				If a player joins before this research,
-				which is true for the first player at least,
-				then get_inventory(...) will crash instead of returning nil.
+			In other words, it returns false, if the call crashed.
+			I use it, because there is no way of checking,
+			if a player has a certain inventory.
+			For example the trash slots are only available,
+			if they have been researched.
+			If a player joins before this research,
+			which is true for the first player at least,
+			then get_inventory(...) will crash instead of returning nil.
 
-				Reference: http://www.lua.org/manual/5.1/manual.html#pdf-pcall
-			]]--
-			pcall(function()
-				p.get_inventory(v).clear()
-			end)
-		end
-		-- We add our items into the quickbar.
-		local inv=p.get_inventory(defines.inventory.player_quickbar)
-		-- Danymically add items from the 'kit' table
-		for i,v in pairs(kit) do
-			inv.insert(v)
-		end
-		-- If we give the player a pickaxe, we add it into the correct slot.
-		if ADD_AXE then
-			p.get_inventory(defines.inventory.player_tools).insert({name="iron-axe",count=1})
-		end
-	end)
+			Reference: http://www.lua.org/manual/5.1/manual.html#pdf-pcall
+		]]--
+		pcall(function()
+			p.get_inventory(v).clear()
+		end)
+	end
+	-- We add our items into the quickbar.
+	local inv=p.get_inventory(defines.inventory.player_quickbar)
+	-- Danymically add items from the 'kit' table
+	for i,v in pairs(kit) do
+		inv.insert(v)
+	end
+	-- If we give the player a pickaxe, we add it into the correct slot.
+	if ADD_AXE then
+		p.get_inventory(defines.inventory.player_tools).insert({name="iron-axe",count=1})
+	end
 end)
 
 --[[
