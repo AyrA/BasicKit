@@ -53,6 +53,8 @@ Gives the player a pickaxe to start with.
 Without the pickaxe, the player has to mine 4 iron ores.
 If the axe is too much, the `ADD_ORE` option can be used instead.
 
+This is on by default.
+
 ### USE_STEAM
 Setting this to true, gives a steam engine,
 boiler and pump to the player instead of solar.
