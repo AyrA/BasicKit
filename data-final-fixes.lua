@@ -3,4 +3,15 @@
 
 	What you see here is a simple file that disables player crafting.
 ]]--
-data.raw.player.player.crafting_categories = {nil}
+local category="ayras-no-crafting-challenge"
+
+data:extend(
+  {
+    {
+      type = "recipe-category",
+      name = category
+    }
+  }
+)
+
+data.raw.player.player.crafting_categories = {category}
