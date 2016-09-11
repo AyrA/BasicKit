@@ -86,3 +86,6 @@ If an item is highlighted red, hovering over it with the mouse tells the player,
 in which machine it can be crafted.
 If there is no machine listed, it will be unobtainable.
 This is useful when new items are added.
+
+# Overrides
+To override a certain recipe to be available, give it the category `ayras-no-crafting-challenge`
