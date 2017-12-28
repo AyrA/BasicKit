@@ -6,36 +6,19 @@
 	Just add a "Code proudly stolen from AyrA" or something similar.
 ]]--
 
--- NOTE: Disabled for 0.13 as it is no longer needed.
--- We use some of these constants for the inventory and the event hookup
--- require "defines"
+-- User Settings
+local ADD_ORE=   settings.global["basic-kit-add-ore"].value
+local ADD_AXE=   settings.global["basic-kit-add-axe"].value
+local ADD_BASICS=settings.global["basic-kit-add-basics"].value
+local USE_STEAM= settings.global["basic-kit-use-steam"].value
+local ADD_ACCU=  settings.global["basic-kit-add-accu"].value
 
--- Configure stuff below
-
--- Add 4 iron ores so you can craft a pickaxe.
--- Mining iron ore is a PAIN without a pickaxe
-local ADD_ORE=false
-
--- Add an iron pickaxe
-local ADD_AXE=true
-
--- Give you back the furnace and burner drill to start with
-local ADD_BASICS=false
-
--- Give steam engine instead of solar panel
-local USE_STEAM=false
-
--- Gives the player a basic accumulator. This is used to bridge
--- the night and to allow faster crafting.
-local ADD_ACCU=false
-
---add values as you need them.
+--Stuff we always need
 local kit={
 	{name="assembling-machine-3",count=1}
 }
 
--- no more changes by you below (unless you know, what you do)
-
+-- Add stuff to inventory depending on the settings
 if USE_STEAM then
 	table.insert(kit,{name="offshore-pump",count=1})
 	table.insert(kit,{name="boiler",count=1})
@@ -60,21 +43,14 @@ if ADD_BASICS then
 end
 
 if ADD_ACCU then
-	table.insert(kit,{name="basic-accumulator",count=1})
+	table.insert(kit,{name="accumulator",count=1})
 end
-
---[[
->>>AAAMAA8AAAADAwYAAAAEAAAAY29hbAMDAgoAAABjb3BwZXItb3Jl
-AwMCCQAAAGNydWRlLW9pbAMDAgoAAABlbmVteS1iYXNlAQAACAAAAGl
-yb24tb3JlAwMCBQAAAHN0b25lAwMCq4L0sHYyAAD4aQAAAAAAAAAAAA
-AFAEAlDj4=<<<
-]]--
 
 script.on_event(defines.events.on_player_created,function(param)
 	--get the joined player. This makes the code, that follows shorter
 	local p=game.players[param.player_index]
 
-	--clear all inventories automatically
+	--clear all player inventories
 	for i,v in pairs(defines.inventory) do
 		--[[
 			pcall prevents lua from crashing.
@@ -99,6 +75,7 @@ script.on_event(defines.events.on_player_created,function(param)
 			If a player joins before this research,
 			which is true for the first player at least,
 			then get_inventory(...) will crash instead of returning nil.
+			I will gladly accept solutions around this problem.
 
 			Reference: http://www.lua.org/manual/5.1/manual.html#pdf-pcall
 		]]--
@@ -118,43 +95,3 @@ script.on_event(defines.events.on_player_created,function(param)
 	end
 end)
 
---[[
-
-These functions were used for debugging only,
-but are still here if you need to debug.
-They are taken from http://lua-users.org/wiki/TableUtils
-
-function table.val_to_str(v)
-	if "string"==type(v) then
-		v=string.gsub(v,"\n","\\n")
-		if string.match(string.gsub(v,"[^'\"]",""),'^"+$') then
-			return "'" .. v .. "'"
-		end
-		return '"' .. string.gsub(v,'"','\\"') .. '"'
-	else
-		return "table"==type(v) and table.tostring(v) or tostring(v)
-	end
-end
-
-function table.key_to_str(k)
-	if "string"==type(k) and string.match(k,"^[_%a][_%a%d]*$") then
-		return k
-	else
-		return "[" .. table.val_to_str(k) .. "]"
-	end
-end
-
-function table.tostring(tbl)
-	local result,done={},{}
-	for k,v in ipairs(tbl) do
-		table.insert(result,table.val_to_str(v))
-		done[k]=true
-	end
-	for k,v in pairs(tbl) do
-		if not done[k] then
-			table.insert(result,table.key_to_str(k) .. "=" .. table.val_to_str(v))
-		end
-	end
-	return "{" .. table.concat(result,",") .. "}"
-end
-]]--
