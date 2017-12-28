@@ -15,7 +15,8 @@ local ADD_ACCU=  settings.global["basic-kit-add-accu"].value
 
 --Stuff we always need
 local kit={
-	{name="assembling-machine-3",count=1}
+	{name="assembling-machine-3",count=1},
+	{name="small-electric-pole",count=1}
 }
 
 -- Add stuff to inventory depending on the settings
@@ -25,12 +26,6 @@ if USE_STEAM then
 	table.insert(kit,{name="steam-engine",count=1})
 else
 	table.insert(kit,{name="solar-panel",count=1})
-end
-
-if BIG_POLE then
-	table.insert(kit,{name="big-electric-pole",count=1})
-else
-	table.insert(kit,{name="small-electric-pole",count=1})
 end
 
 if ADD_ORE then
