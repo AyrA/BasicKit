@@ -56,7 +56,9 @@ Contains the settings for the Mod Settings UI
 ## control.lua
 
 Constants in control.lua enable certain items.
-The value is obtained from the settings
+The value is obtained from the settings.
+
+**As of 1.0.2, All Settings are off by default**
 
 ### Add Iron ore
 
@@ -69,19 +71,20 @@ This greatly speeds up the bootstrap phase.
 
 Gives the player a pickaxe to start with.
 Without the pickaxe, the player has to mine 4 iron ores.
-If the axe is too much, the `ADD_ORE` option can be used instead.
+If the axe is too much, the `Add Iron ore` option can be used instead.
 
-This is on by default.
+This option has no effect if `Don't clear Inventory` is enabled,
+because then you start off with materials for a pickaxe.
 
 ### Use Steam Engines
 
 Setting this to true, gives a steam engine,
 boiler and pump to the player instead of solar.
 
-### Add basic items
+### Don't clear Inventory
 
-Gives the player a stone furnace and a burner mining drill.
-These items are usually removed to add a small amount of difficulty.
+This stops the mod from clearing the entire Inventory before giving the mod specific items.
+Useful to keep the basic starting items and if other mods want to add stuff that this mod would remove instantly.
 
 ### Add accumulator
 
@@ -94,6 +97,7 @@ The accumulator allows to bridge that gap and also allows crafting at night.
 
 This file makes all items machine-craftable only.
 
-# Overrides
-To override a certain recipe of your mod to be available ffor hand crafting,
+# For Mod Developers
+
+To override a certain recipe of your mod to be available for hand crafting,
 give it the category `ayras-no-crafting-challenge`
