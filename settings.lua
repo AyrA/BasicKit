@@ -19,17 +19,17 @@ data:extend({
         type = "bool-setting",
         name = "basic-kit-add-axe",
 		localised_name = "Add pickaxe to inventory",
-		localised_description = "Start the game with a pickaxe.",
+		localised_description = "Start the game with a pickaxe. Has no effect if 'Don't clear Inventory' is enabled.",
         setting_type = "runtime-global",
-        default_value = true,
+        default_value = false,
 		order = 2
     },
     {
-		-- Vanilla new game items
+		-- Don't clear Inventory
         type = "bool-setting",
-        name = "basic-kit-add-basics",
-		localised_name = "Add basic items to inventory",
-		localised_description = "Add a furnace and mining drill to the inventory which are present in an unmodded game. Otherwise they are removed.",
+        name = "basic-kit-keep-inventory",
+		localised_name = "Don't clear Inventory",
+		localised_description = "Enable this option to keep all items inserted by other mods and the base game.",
         setting_type = "runtime-global",
         default_value = false,
 		order = 3
