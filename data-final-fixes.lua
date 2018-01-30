@@ -1,17 +1,7 @@
 --[[
 	See control.lua about stealing my code.
 
-	What you see here is a simple file that disables player crafting.
+	Disables player crafting apart from a special category.
+	Give this category to items in your mods that need to be craftable.
 ]]--
-local category="ayras-no-crafting-challenge"
-
-data:extend(
-  {
-    {
-      type = "recipe-category",
-      name = category
-    }
-  }
-)
-
-data.raw.player.player.crafting_categories = {category}
+data.raw.player.player.crafting_categories = {"ayras-no-crafting-challenge"}
