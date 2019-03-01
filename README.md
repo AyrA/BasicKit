@@ -58,23 +58,7 @@ Contains the settings for the Mod Settings UI
 Constants in control.lua enable certain items.
 The value is obtained from the settings.
 
-**As of 1.0.2, All Settings are off by default**
-
-### Add Iron ore
-
-This adds 4 iron ore items into the players inventory.
-This is just enough to craft the first pickaxe.
-Mining a single iron ore takes about 20 seconds without a pickaxe.
-This greatly speeds up the bootstrap phase.
-
-### Add Pickaxe
-
-Gives the player a pickaxe to start with.
-Without the pickaxe, the player has to mine 4 iron ores.
-If the axe is too much, the `Add Iron ore` option can be used instead.
-
-This option has no effect if `Don't clear Inventory` is enabled,
-because then you start off with materials for a pickaxe.
+**As of 2.0.0, "Keep Inventory" is on by default**
 
 ### Use Steam Engines
 
@@ -86,6 +70,9 @@ boiler and pump to the player instead of solar.
 This stops the mod from clearing the entire Inventory before giving the mod specific items.
 Useful to keep the basic starting items and if other mods want to add stuff that this mod would remove instantly.
 
+This is enabled by default since `v2.0.0`.
+Do not disable if a mod adds items to your inventory that are unobtainable.
+
 ### Add accumulator
 
 Gives the player an accumulator.
@@ -93,9 +80,9 @@ The assembling machine already drains 7 Kw when it does not works.
 When crafting stuff, a solar panel can't keep up with the energy requirement by far.
 The accumulator allows to bridge that gap and also allows crafting at night.
 
-## data-final-fixes.lua
+## data.lua and data-final-fixes.lua
 
-This file makes all items machine-craftable only.
+These files make all items machine-craftable only.
 
 # For Mod Developers
 
