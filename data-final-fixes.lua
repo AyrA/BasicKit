@@ -4,4 +4,4 @@
 	Disables player crafting apart from a special category.
 	Give this category to items in your mods that need to be craftable.
 ]]--
-data.raw.player.player.crafting_categories = {"ayras-no-crafting-challenge"}
+data.raw.character.character.crafting_categories = {"ayras-no-crafting-challenge"}

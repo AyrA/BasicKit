@@ -75,7 +75,7 @@ script.on_event(defines.events.on_player_created,function(param)
 		end
 	end
 	-- We add our items into the quickbar.
-	local inv=p.get_inventory(defines.inventory.player_main)
+	local inv=p.get_inventory(defines.inventory.character_main)
 	-- Danymically add items from the 'kit' table
 	for i,v in pairs(kit) do
 		inv.insert(v)
